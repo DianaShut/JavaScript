@@ -5,6 +5,9 @@ function calculateAreaRectangle(a,b) {
     return areaRectangle;
 }
 console.log(calculateAreaRectangle(6,7));
+//arrow function
+const calculateAreaCircle=(a,b)=>a*b;
+console.log(calculateAreaRectangle(3,5));
 
 //створити функцію привітання
 
@@ -22,6 +25,8 @@ function calculateAreaCircle(r){
     return areaCircle;
 }
 console.log(calculateAreaCircle(5));
+//arrow function
+const calculateAreaCircle=(r)=>Math.PI*r**2;
 
 //або
 function sRound(r) {
@@ -35,6 +40,8 @@ function sCilindr(r, h) {
     return 2 * Math.PI * r * (r + h);
 }
 console.log(sCilindr(5, 10));
+//arrow f
+const sCilindr=(r,h)=>2 * Math.PI * r * (r + h);
 
 //створити функцію яка приймає масив та виводить кожен його елемент
 
@@ -44,7 +51,12 @@ for(const item of arr){
 }
 }
 itemOfArr([12,9,4,8,6]);
-
+//arrow f
+let itemOfArr=(arr)=>{
+    for(const item of arr){
+        console.log(item);
+    }
+}
 
 //створити функцію яка створює параграф з текстом. Текст задати через аргумент
 
@@ -52,7 +64,10 @@ function writeText(text){
     document.write(`<p>${text}</p>`);
 }
 writeText('Hello, winter!')
-
+// arrow f
+let writeText=text=>{
+    document.write(`<p>${text}</p>`);
+}
 
 //створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
 
@@ -66,6 +81,16 @@ function createList(itemOfList){
     document.write(`</ul>`);
 }
 createList('snow');
+//arrow f
+let createList=itemOfList=>{
+    document.write(`<ul>`);
+    document.write(
+    `<li>${itemOfList}</li>
+    <li>${itemOfList}</li>
+    <li>${itemOfList}</li>`
+    )
+    document.write(`</ul>`);
+}
 
 //створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
 
@@ -77,6 +102,14 @@ function createList2(itemOfList,count){
 }
 }
 createList2 ('Christmas',5);
+//arrow f
+let createList2=(itemOfList,count)=>{
+    document.write(`<ul>`);
+    for(i=0;i<count;i++){
+    document.write(`<li>${itemOfList}</li>`)
+    document.write(`</ul>`);
+}
+}
 
 //створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 
