@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--є сторінка, на якій є блок, в кому знаходиться цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1-->
+<h1>Resolve 10 JS (task-2)</h1>
+<h1>Count: <b id="count"></b></h1>
+
+<script>
+    const count = localStorage.getItem('count') || 0;
+    //Зчитує значення з локального сховища за ключем 'count'. Якщо значення відсутнє, встановлюється значення за замовчуванням як 0.
+    const block = document.getElementById('count');
+    const newResult = (Number(count) + 1).toString();
+    //Зчитує значення з локального сховища за ключем 'count'. Якщо значення відсутнє, встановлюється значення за замовчуванням як 0.
+
+    block.innerText = newResult;
+    localStorage.setItem('count', newResult);
+    //Зберігає нове значення 'count' в локальному сховищі, щоб при наступному завантаженні сторінки можна було отримати і використовувати останнє значення.
+
+</script>
+</body>
+</html>

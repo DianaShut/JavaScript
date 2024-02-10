@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let user = {
+        firstName: 'kokos',
+        lastname: 'abrikososv'
+    }
+//Визначення властивості fullName за допомогою Object.defineProperty:
+    Object.defineProperty(
+        user,
+        'fullName',
+        {
+            value: 'default value',
+            writable: true,
+            enumerable: true,
+            configurable: true
+        }
+    )
+
+
+    user.fullName = 'asgjasdg';
+    console.log(user);
+
+
+    for (const userKey in user) {
+        console.log(userKey);
+    }
+</script>
+</body>
+</html>

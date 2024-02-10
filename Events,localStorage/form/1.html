@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .block{
+            margin-top: 10px;
+            background-color: #7b9cd7;
+        }
+        #btn{
+            background-color: forestgreen;
+            border: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+<!--Створити форму з трьома полями для name,surname,age та кнопкою. При натисканні на кнопку зчитати данні з полів, та вивести об'єкт в документ. Іншими словами : заповнили форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом-->
+
+<form name="info">
+    <input type="text" placeholder="name" name="username">
+    <input type="text" placeholder="surname" name="usersurname">
+    <input type="text" placeholder="age" name="userage">
+    <input type="submit" value="save" id="btn">
+</form>
+
+<script>
+
+let form=document.forms [0];
+let users=[];
+form.onsubmit=function (ev){
+    console.log(ev);
+    ev.preventDefault();
+    let name=this.username.value;
+    let surname=this.usersurname.value;
+    let age=this.userage.value;
+    users.push({name,surname,age});
+    let div=document.createElement('div');
+    div.classList.add('block');
+    for(const user of users){
+        div.innerText=`user: name-${user.name}  ${user.surname}, age - ${user.age}`;
+        document.body.appendChild(div);
+    }
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // Функція concatArrRecursively рекурсивно згладжує всі вкладені масиви у вхідному масиві
+    // Recursion
+    const array = [1, 1, [2, 2], [[3, [4, 5, [0]], 3], 211]];
+    // -> [1, 1, 2, 2, 3, 4, 5, 0, 3, 211]
+    function concatArrRecursively(items) {
+        const flattened = [];
+        items.forEach((item) => {
+            if (Array.isArray(item)) {
+                flattened.push(...concatArrRecursively(item)); // Якщо елемент є масивом, викликається рекурсивно функція concatArrRecursively для цього масиву, а результуючий масив розгортається за допомогою ... та додається до flattened.
+            } else {
+                flattened.push(item);
+            }
+        });
+        return flattened;
+    }
+    console.log(concatArrRecursively(array));
+
+
+///////////////////////////////////////////////////////////////
+    let array = [11, 22, [33, 44, [55, 66]]];
+    let resultArr = [];
+    function flatter(arr) {
+        for (const item of arr) {
+            if (Array.isArray(item)) {
+                flatter(item);
+            } else {
+                resultArr.push(item);
+            }
+        }
+    }
+    flatter(array);
+    //////////////////////////////////////////////////////////////
+    let xxx = [
+        true,
+        [11, 22, 33],
+        [111, 222, 333, [123, 234, 345]],
+        ['asdhfasd', 'aslkdhsj', [1, 2, 3, 4, [111, 111, 11, [true, true]]]],
+        false
+    ];
+    function recurciveLooper(arr) {
+        for (const arrElement of arr) {
+            console.log(arrElement);
+            if (Array.isArray(arrElement)) {
+                recurciveLooper(arrElement);
+            }
+        }
+    }
+    recurciveLooper(xxx);
+
+////////////////////////////////////////////////////////////
+    function explorer(htmlElement) {
+        console.log(htmlElement);
+        let children = htmlElement.children;
+        if (children.length !== 0) {
+            for (const child of children) {
+                explorer(child);
+            }
+        }
+
+    }
+
+    explorer(document.body)
+
+////////////////////////////////////////////////////////////
+    function factorial(n) {
+        // Базовий випадок: 0! або 1! дорівнює 1
+        if (n === 0 || n === 1) {
+            return 1;
+        } else {
+            // Рекурсивний виклик: n! = n * (n-1)!
+            return n * factorial(n - 1);
+        }
+    }
+
+    console.log(factorial(5)); // Результат: 120
+
+
+</script>
+</body>
+</html>

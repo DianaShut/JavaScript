@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//Отже, код завантажує дані про пости, створює список постів на сторінці, а кожен пост може бути вибраний для перегляду деталей на окремій сторінці.
+    let url = new URL('https://jsonplaceholder.typicode.com/posts');
+    fetch(url)
+        .then(response => response.json()) //Отримання відповіді у форматі JSON
+        .then(posts => {
+            let ul = document.createElement('ul');
+            for (const post of posts) {
+                let li = document.createElement('li');
+
+                let a = document.createElement('a');
+                a.innerText = post.title;
+                a.href = 'details.html?xxx=' + JSON.stringify(post);
+                li.appendChild(a);
+                ul.appendChild(li);
+
+                li.addEventListener('click', () => {
+                    location.href = 'details.html?xxx=' + JSON.stringify(post);
+                })
+                //Код для обробки події кліку на елементі <li> для переходу на іншу сторінку (details.html) з параметром 'xxx', який містить JSON-рядок обраного поста.
+
+
+            }
+
+            document.body.append(ul);
+
+        });
+
+
+</script>
+
+</body>
+</html>
